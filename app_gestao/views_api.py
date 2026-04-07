@@ -18,6 +18,7 @@ class RegAtrasosViewSet(viewsets.ModelViewSet):
 @permission_classes([permissions.IsAuthenticated])
 def relatorio_atrasos_por_ra(request, ra):
     registros = RegAtrasos.objects.filter(ra=ra).order_by("-data_atraso")
+    print("GitHub Actions")
     if not registros.exists():
         return Response(
             {"mensagem": f"Nenhum registro encontrado para o RA {ra}."},
